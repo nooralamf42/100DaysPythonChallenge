@@ -1,5 +1,7 @@
-#wap to print your input name's length
+#wap to create band name using user input
 
-name = input("Hello! can you type you name : ");
-namelength = len(name);
-print("your name have ",namelength, " lettors");
+
+city = input("Type your city name : ")
+pet = input("Type your pet's name : ")
+
+print("Your band's name is "+ city + pet)
