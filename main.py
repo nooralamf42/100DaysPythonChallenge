@@ -1,12 +1,12 @@
-#Write your code below this line 👇
-#Hint: Remember to import the random module first. 🎲
-
+# Bill splitting using split string method
 import random
 
-random.seed = input("Enter random numbers : ")
+ram = random.seed(input("Type a random number : "))
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+# # 🚨 Don't change the code above 👆
 
-random_number = random.randint(1, 2)
-if (random_number == 1):
-    print("Heads")
-else:
-    print("Tails")
+# #Write your code below this line 👇
+
+randomname = random.randint(0, len(names))
+print(f"{names[randomname]} is gonna pay.")
