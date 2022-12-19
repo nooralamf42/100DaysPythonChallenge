@@ -1,32 +1,12 @@
-# 🚨 Don't change the code below 👇
-print("Welcome to the Love Calculator!")
-name1 = input("What is your name? \n")
-name2 = input("What is their name? \n")
-# 🚨 Don't change the code above 👆
-
 #Write your code below this line 👇
-nameA = name1.lower()
-nameB = name2.lower()
+#Hint: Remember to import the random module first. 🎲
 
-nameAB=nameA+nameB
+import random
 
-nameAB1 = nameAB.count("t")
-nameAB1 += nameAB.count("r")
-nameAB1 += nameAB.count("u")
-nameAB1 += nameAB.count("e")
+random.seed = input("Enter random numbers : ")
 
-nameAB2 = nameAB.count("l")
-nameAB2 += nameAB.count("o")
-nameAB2 += nameAB.count("v")
-nameAB2 += nameAB.count("e")
-
-loveScore = nameAB1 * 10 + nameAB2
-
-if (loveScore < 10 or loveScore > 90):
-    print(
-        f"Your love score is {loveScore}, you go together like coke and mentos."
-    )
-elif (loveScore >= 40 and loveScore <= 50):
-    print(f"Your love score is {loveScore}, you are alright together.")
+random_number = random.randint(1, 2)
+if (random_number == 1):
+    print("Heads")
 else:
-    print(f"Your loveScore is {loveScore}")
+    print("Tails")
