@@ -1,40 +1,56 @@
-## Treasure Island
+## FizzBuzz
+
+# UPDATE
+We've moved away from repl.it for coding exercises.
+Check out the new exercises on Coding Rooms with automated submissions.
+
+Login to your Udemy course and head over to the link below to get the sign up link:
+
+[Click here](https://www.udemy.com/course/100-days-of-code/learn/lecture/17825914#questions)
 
 # Instructions
 
-Make your own "Choose Your Own Adventure" game. Use conditionals such as `if`, `else`, and `elif` statements to lay out the logic and the story's path in your program. 
+You are going to write a program that automatically prints the solution to the FizzBuzz game. 
 
-[To write your code according to my story, you can use this flow chart from draw.io to help you.](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload)
+> `Your program should print each number from 1 to 100 in turn.` 
 
-However, I think the fun part is writing your *own* story 😊
+>   `When the number is divisible by 3 then instead of printing the number it should print "Fizz".` 
 
-🧞‍♂️ 🐊 🧙‍♂️ 🧟 🧚‍♂️ 🧝‍♂️ 🥷 🤖 👽 🙀 
+>     `When the number is divisible by 5, then instead of printing the number it should print "Buzz".` 
 
-That said if you'd like to continue with my example, feel free to use the text snippets below...
+>       `And if the number is divisible by both 3 and 5 e.g. 15 then instead of the number it should print "FizzBuzz"`
 
-### Text Snippets from my example
+e.g. it might start off like this:
 
-* 'You\'re at a crossroad. Where do you want to go? Type "left" or "right"'
-* 'You\'ve come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across.'
-* "You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?"
-* "It\'s a room full of fire. Game Over."
-* "You found the treasure! You Win!"
-* "You enter a room of beasts. Game Over."
-* "You chose a door that doesn\'t exist. Game Over."
-* "You get attacked by an angry trout. Game Over."
-* "You fell into a hole. Game Over."
+```
+`1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz`
+```
 
-# Escaping Characters
+`.... etc.`
 
-If you want to use multiple sets of quotes inside a single string, you might have to "escape" some of them using the backslash `\`. You can see this in my first sentence: 'You\'re at a crossroad...'. [More on escaping characters here.](https://www.w3schools.com/python/gloss_python_escape_characters.asp)
+# Hint
 
-# Extensions
+1. Remember your answer should start from 1 and go up to and including 100. 
 
-Have a think about how you might write your program to make a player's answers less case-sensitive. In other words, your code should work regardless of whether your user answers "left" or "Left".
-
-[You can also add your own ASCII art](https://ascii.co.uk/art). Just remember to add three single quotes `'''` at the start and at the end of your artwork to turn it into a multi-line string. 
-
+2. Each number/text should be printed on a separate line.
 
 # Solution
 
-[https://replit.com/@appbrewery/treasure-island-end#main.py](https://replit.com/@appbrewery/treasure-island-end)
+[https://repl.it/@appbrewery/day-5-4-solution](https://repl.it/@appbrewery/day-5-4-solution)
+
+Alternatively: [https://en.wikipedia.org/wiki/Fizz_buzz](https://en.wikipedia.org/wiki/Fizz_buzz)
+
