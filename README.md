@@ -1,77 +1,24 @@
-## Prime Numbers
-
-# UPDATE
-We've moved away from repl.it for coding exercises.
-Check out the new exercises on Coding Rooms with automated submissions.
-
-Login to your Udemy course and head over to the link below to get the sign up link:
-
-[Click here](https://www.udemy.com/course/100-days-of-code/learn/lecture/17825914#questions)
+## Rock Paper Scissors
 
 # Instructions
 
-Prime numbers are numbers that can only be cleanly divided by itself and 1. 
+Make a rock, paper, scissors game. 
 
-[https://en.wikipedia.org/wiki/Prime_number](https://en.wikipedia.org/wiki/Prime_number)
+Inside the `main.py` file, you'll find the ASCII art for the hand signals already saved to a corresponding variable: `rock`, `paper`, and `scissors`. This will make it easy to print them out to the console. 
 
+Start the game by asking the player:
 
-**You need to write a function** that checks whether if the number passed into it is a prime number or not.
+*"What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors."*
 
-e.g. 2 is a prime number because it's only divisible by 1 and 2.
+From there you will need to figure out: 
+* How you will store the user's input.
+* How you will generate a random choice for the computer.
+* How you will compare the user's and the computer's choice to determine the winner (or a draw).
+* And also how you will give feedback to the player. 
 
-But 4 is not a prime number because you can divide it by 1, 2 or 4.
-
- 
- ![](https://cdn.fs.teachablecdn.com/s0gceS97QD6MP5RUT49H)
-
-Here are the numbers up to 100, prime numbers are highlighted in yellow:
-
-![](https://cdn.fs.teachablecdn.com/NZqVclSt2qAe8KhTsUtw)
-
-# Example Input 1
-
-```
-73
-```
-
-# Example Output 1
-
-```
-It's a prime number.
-```
-
-# Example Input 2
-
-```
-75
-```
-
-# Example Output 2
-
-```
-It's not a prime number.
-```
-
-# Hint
-
-1. Remember the modulus: 
-
-[https://stackoverflow.com/questions/4432208/what-is-the-result-of-in-python](https://stackoverflow.com/questions/4432208/what-is-the-result-of-in-python)
-
-2. Make sure you name your function/parameters the same as when it's called on the last line of code. 
-
-3. Use the same wording as the Example Outputs to make sure the tests pass. 
-
-# Test Your Code
-
-Before checking the solution, try copy-pasting your code into this repl: 
-
-[https://repl.it/@appbrewery/day-8-2-test-your-code](https://repl.it/@appbrewery/day-8-2-test-your-code)
-
-This repl includes my testing code that will check if your code meets this assignment's objectives. 
+You can find the "official" rules of the game on [the World Rock Paper Scissors Association website.](https://wrpsa.com/the-official-rules-of-rock-paper-scissors/)
 
 
 # Solution
 
-[https://repl.it/@appbrewery/day-8-2-solution](https://repl.it/@appbrewery/day-8-2-solution)
-
+[https://replit.com/@appbrewery/rock-paper-scissors-end](https://replit.com/@appbrewery/rock-paper-scissors-end)

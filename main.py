@@ -1,18 +1,53 @@
-#prime number checker
-#Write your code below this line 👇
-import math
-def prime_checker(number):
-        div_number=math.ceil(number/2) 
-        while div_number<=number:
-          if number%div_number==0 and div_number!=1:
-            return f"{number} is not a prime number"
-          else:
-            return f"{number} is a prime number"
-          div_number-=1
-          
-          
-#Write your code above this line 👆
-    
-#Do NOT change any of the code below👇
-n = int(input("Check this number: "))
-print(prime_checker(number=n))
+#hangman game
+
+import random
+from hangman_words import word_list
+from hangman_art import stages, logo
+
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
+
+end_of_game = False
+lives = 6
+
+
+
+#Testing code
+print(logo)
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    if guess in display:
+       print(f"you have already guessed '{guess}'")
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+      
+        if letter == guess:
+            display[position] = letter
+   
+    #Check if user is wrong.
+    if guess not in chosen_word:
+        print(f"'{guess}' is wrong lettor! you have lost one life")
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You lose.")
+
+    #Join all the elements in the list and turn it into a String.
+    print(f"{' '.join(display)}")
+
+    #Check if user has got all letters.
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
+
+    print(stages[lives])
