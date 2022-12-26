@@ -1,50 +1,53 @@
-rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
-
-paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
-
-scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
-
-#Write your code below this line 👇
-
-game=[rock,paper,scissors]
-
-user= int(input("Type 1 for rock, 2 for paper and 3 scissor : "))
+#hangman game
 
 import random
-computer=random.randint(1,3)
+from hangman_words import word_list
+from hangman_art import stages, logo
 
-if(computer==1 and user==3 or computer==2 and user==1 or computer==3 and user==2 and computer!=user):
-  print(f"You choosed : {game[user-1]}")
-  print(f"Computer choosed : {game[computer-1]}")
-  print("computer wins")
-  
-if(user==1 and computer==3 or user==2 and computer==1 or user==3 and computer==2 and user!=computer):
-  print(f"You choosed : {game[user-1]}")
-  print(f"Computer choosed : {game[computer-1]}")
-  print("user wins")
+chosen_word = random.choice(word_list)
+word_length = len(chosen_word)
 
-if(computer==user):
-  print(f"You choosed : {game[user-1]}")
-  print(f"Computer choosed : {game[computer-1]}")
-  print("Draw")
+end_of_game = False
+lives = 6
+
+
+
+#Testing code
+print(logo)
+print(f'Pssst, the solution is {chosen_word}.')
+
+#Create blanks
+display = []
+for _ in range(word_length):
+    display += "_"
+
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    if guess in display:
+       print(f"you have already guessed '{guess}'")
+
+    #Check guessed letter
+    for position in range(word_length):
+        letter = chosen_word[position]
+      
+        if letter == guess:
+            display[position] = letter
+   
+    #Check if user is wrong.
+    if guess not in chosen_word:
+        print(f"'{guess}' is wrong lettor! you have lost one life")
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You lose.")
+
+    #Join all the elements in the list and turn it into a String.
+    print(f"{' '.join(display)}")
+
+    #Check if user has got all letters.
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
+
+    print(stages[lives])
