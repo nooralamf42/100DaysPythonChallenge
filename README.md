@@ -1,77 +1,41 @@
-## Prime Numbers
+## Blind Auction
 
-# UPDATE
-We've moved away from repl.it for coding exercises.
-Check out the new exercises on Coding Rooms with automated submissions.
-
-Login to your Udemy course and head over to the link below to get the sign up link:
-
-[Click here](https://www.udemy.com/course/100-days-of-code/learn/lecture/17825914#questions)
+Click "Open Preview" above to see this file rendered with the markdown.
 
 # Instructions
 
-Prime numbers are numbers that can only be cleanly divided by itself and 1. 
-
-[https://en.wikipedia.org/wiki/Prime_number](https://en.wikipedia.org/wiki/Prime_number)
-
-
-**You need to write a function** that checks whether if the number passed into it is a prime number or not.
-
-e.g. 2 is a prime number because it's only divisible by 1 and 2.
-
-But 4 is not a prime number because you can divide it by 1, 2 or 4.
-
- 
- ![](https://cdn.fs.teachablecdn.com/s0gceS97QD6MP5RUT49H)
-
-Here are the numbers up to 100, prime numbers are highlighted in yellow:
-
-![](https://cdn.fs.teachablecdn.com/NZqVclSt2qAe8KhTsUtw)
-
-# Example Input 1
+The objective is to write a program that will collect the names and bids of different people. The program should ask for each bidder's name and their bid individually. 
 
 ```
-73
+Welcome to the secret auction program. 
+What is your name?: Angela
 ```
-
-# Example Output 1
-
 ```
-It's a prime number.
+What's your bid?: $123
 ```
-
-# Example Input 2
-
 ```
-75
-```
-
-# Example Output 2
+Are there any other bidders? Type 'yes' or 'no'.
+yes
 
 ```
-It's not a prime number.
+If there are other bidders, the screen should clear, so you can pass your phone to the next person. If there are no more bidders, then the program should display the name of the winner and their winning bid. 
+
+```
+The winner is Elon with a bid of $55000000000
 ```
 
-# Hint
+Use your knowledge of Python dictionaries and loops to solve this challenge. 
 
-1. Remember the modulus: 
 
-[https://stackoverflow.com/questions/4432208/what-is-the-result-of-in-python](https://stackoverflow.com/questions/4432208/what-is-the-result-of-in-python)
+# My console doesn't clear!
 
-2. Make sure you name your function/parameters the same as when it's called on the last line of code. 
+This will happen if you’re using an IDE other than replit (e.g., VSCode, PyCharm etc). Similar to how we used the "random" module previously, in this project we will use the "replit" module. The `clear()` function is available here via the replit module without any extra configuration. 
 
-3. Use the same wording as the Example Outputs to make sure the tests pass. 
+**I’ll cover how to use PyCharm and import modules on Day 15**. That said, you can write your own `clear()` function or configure your IDE like so: 
 
-# Test Your Code
-
-Before checking the solution, try copy-pasting your code into this repl: 
-
-[https://repl.it/@appbrewery/day-8-2-test-your-code](https://repl.it/@appbrewery/day-8-2-test-your-code)
-
-This repl includes my testing code that will check if your code meets this assignment's objectives. 
+[Udemy Q&A Answer](https://www.udemy.com/course/100-days-of-code/learn/lecture/19279420#questions/16084076)
 
 
 # Solution
 
-[https://repl.it/@appbrewery/day-8-2-solution](https://repl.it/@appbrewery/day-8-2-solution)
-
+[https://replit.com/@appbrewery/blind-auction-completed](https://replit.com/@appbrewery/blind-auction-completed?v=1)
