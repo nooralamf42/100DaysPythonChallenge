@@ -16,6 +16,7 @@ while not should_continue:
     clear()
     print(logo)
   elif decide=="no":
+    clear()
     should_continue=True
 
 charity=0
