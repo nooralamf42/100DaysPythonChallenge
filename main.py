@@ -1,32 +1,57 @@
-#learning output functions
+#calculator program
 
-# def name_format(first_name,last_name):
-#   n=0
-#   new_f=""
-#   for n in range(0,len(first_name)):
-#     if n==0:
-#       new_f+=first_name[n].upper()
-#     else:
-#       new_f+=first_name[n].lower()
-#   new_l=""
-#   for n in range(0,len(last_name)):
-#     if n==0:
-#       new_l+=last_name[n].upper()
-#     else:
-#       new_l+=last_name[n].lower()
-  
-#   return (f"Welcome {new_f} {new_l}.")
-
-f_name = input("Enter your first name : ")
-l_name = input("Enter your last name : ")
 from replit import clear
-clear()
+def calculator():
+  """ Recursive function to reset everthing"""
+  
+  def add(n1,n2):
+    """ To add two numbers """
+    return n1+n2
+  
+  def subtract(n1,n2):
+    """ To subtract two numbers """
+    return n1-n2
+    
+  def multiply(n1,n2):
+    """ To multiply two numbers"""
+    return n1*n2
+  
+  def divide(n1,n2):
+    """ To divide two numbers """
+    return n1/n2
+  
+  operations = {
+    "+" : add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+  }
+  from art import logo
+  print(logo)
+  n1 = float(input("Enter first number : "))
+  n2 = float(input("Enter second number : "))
+  
+  should_continue=True
+  while should_continue:
+    
+    for symbol in operations:
+      print(symbol)
+      
+    operation_symbol = input("Pick a operation symbol from above line : ")
+    calculation_function = operations[operation_symbol]
+    answer= calculation_function(n1,n2)
+    print(f"{n1} {operation_symbol} {n2} = {answer} ")
+  
+    should_continue = input("To continue calculating press 'y' and press 'n' to clear screen : ")
+  
+    if should_continue == "n":
+      should_continue=False
+      clear()
+      calculator()
+    if should_continue == "y":
+      new_n = float(input("Enter a number : "))
+      n1=answer
+      n2=new_n
 
-def name_format(first_name,last_name):
-  return(f"Welcome {first_name.title()} {last_name.title()}.")
-z=(name_format(first_name=f_name,last_name=l_name))
-print(z)
-
-
-#second method
-
+calculator()
+  
