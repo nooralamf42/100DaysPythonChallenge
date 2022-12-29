@@ -1,29 +1,32 @@
+#learning output functions
+
+# def name_format(first_name,last_name):
+#   n=0
+#   new_f=""
+#   for n in range(0,len(first_name)):
+#     if n==0:
+#       new_f+=first_name[n].upper()
+#     else:
+#       new_f+=first_name[n].lower()
+#   new_l=""
+#   for n in range(0,len(last_name)):
+#     if n==0:
+#       new_l+=last_name[n].upper()
+#     else:
+#       new_l+=last_name[n].lower()
+  
+#   return (f"Welcome {new_f} {new_l}.")
+
+f_name = input("Enter your first name : ")
+l_name = input("Enter your last name : ")
 from replit import clear
-from art import logo,winner
+clear()
 
-print(logo+"Blind Charity helps you to find who is willing to give highest money for charity without showing others name\n")
+def name_format(first_name,last_name):
+  return(f"Welcome {first_name.title()} {last_name.title()}.")
+z=(name_format(first_name=f_name,last_name=l_name))
+print(z)
 
-people_dic={}
-should_continue=False
 
-while not should_continue:
-  name = input("Type your name : ")
-  money = int(input("Enter amount of money that you willing to give : $"))
-  decide= input("\nIs there anyone else? Type 'yes' or 'no' : ")
+#second method
 
-  people_dic[name]=money
-  if decide=="yes":
-    clear()
-    print(logo)
-  elif decide=="no":
-    clear()
-    should_continue=True
-
-charity=0
-
-for person in people_dic:
-  if people_dic[person]>charity:
-    charity=people_dic[person]
-    person_name=person
-
-print(f"{winner}{person_name} is winner!\nGiving ${charity} as charity.")
