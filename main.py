@@ -1,66 +1,88 @@
-#Number Guessing Game
+from art import logo, vs, winner
 import random
-from logo import logo
-
+from replit import clear
+#print logo
 print(logo)
-print("Welcome to Number Guessing Game!")
-print("I am thinking of a number between 1 to 100")
-print(
-    "NOTE : When you guess a number make sure you input a number not any letter or special character.\nHard difficulty will give you 5 guess chances and easy will give you 10 chance."
-)
 
-selected_number = random.randint(1, 100)
-# print("psst selected number is",selected_number)
+#import list
+from game_data import data
 
+score=0
+A = "Compare A"
+B = "Against B"
 
-def ask_level():
-    level = input(
-        "\nChoose a difficulty level.\nType 'easy' for easy and 'hard' for hard : "
+#create a dictionary picker
+def dictionary_picker():
+    random_number = random.randint(0, (len(data) - 1))
+    picked_dictionary = data[random_number]
+    data.remove(picked_dictionary)
+    return picked_dictionary
+
+#info printer
+def print_info(info,dic):
+  return print(f"\n{info} : {dic['name']}, a {dic['description']}, from {dic['country']}."
     )
-    if level == "easy":
-        life = 10
-    elif level == "hard":
-        life = 5
+  
+should_continue = True
+b=dictionary_picker()
+while should_continue:
+  a=b
+  b=dictionary_picker()
+  a_score = a["follower_count"]
+  b_score = b["follower_count"]
+  print_info(A,a)
+  print (vs)
+  print_info(B,b)
+   
+  user_input = (input("\nWhich do you think have most followers?\nType 'a' for A and 'b' for B : ")).lower()
+  clear()
+  print(logo)
+  if user_input=="a":
+    if a_score>b_score:
+      score+=1
+      if len(data):
+        print(f"You guessed right! Current score is {score}.")
     else:
-        print("\nType a valid input!")
-        ask_level()
-
-    def check_guess(input_guess):
-        if input_guess > selected_number:
-            return 1
-        elif input_guess == selected_number:
-            return 0
-        else:
-            return -1
-
-    while life:
-        guess = int(input("\nType your guess : "))
-        checked_guess = check_guess(guess)
-        if checked_guess == 1:
-            life -= 1
-            print(f"  Guessed number is too high.(Remaining guess = {life}).")
-        elif checked_guess == 0:
-            break
-        else:
-            life -= 1
-            print(f"  Guessed number is too low.(Remaining guess = {life}).")
-
-    if life > 0:
-        print(
-            f"\nYOU WON !\n  Guessed Number = {guess}\n  Picked Number = {selected_number}"
-        )
-
-    elif life == 0:
-        print("\nYou LOSE 😥\n  You ran out of life.")
+      should_continue = False
+      print(f"Ngek wrong guess! Total score is {score}.")
+  elif user_input=="b":
+    if b_score>a_score:
+      score+=1
+      if len(data):
+        print(f"You guessed right! Current score is {score}.")
+    else:
+      should_continue = False
+      print(f"Ngek wrong guess! Total score is {score}.")
+  if not should_continue:
+    if(input("Hit enter to restart ...")==""):
+      clear()
+      print(logo)
+      should_continue=True    
+  if not len(data):
+   print(f"{winner}\nCongratulations! You won this game.")
+   should_continue=False
+  
+  
       
-    def restart_loop():
-      restart_game=input("\nDo you want to play again?\nType 'y' for yes and 'n' for no : ")
-      if restart_game=='y':
-        clear()
-        ask_level()
-      elif restart_game=='n':
-        print("\nHave a good day!")
-      else:
-        restart_loop()
-    restart_loop()
-ask_level()
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
