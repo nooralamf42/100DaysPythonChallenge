@@ -1,88 +1,67 @@
-from art import logo, vs, winner
-import random
+# to import data
+# import clear
 from replit import clear
-#print logo
-print(logo)
 
-#import list
-from game_data import data
+from data import MENU, resources
 
-score=0
-A = "Compare A"
-B = "Against B"
+# TODO 1: ask for input
+def coffee_machine():
+    user_input = input("What would you like? (espresso/latte/cappuccino): ")
 
-#create a dictionary picker
-def dictionary_picker():
-    random_number = random.randint(0, (len(data) - 1))
-    picked_dictionary = data[random_number]
-    data.remove(picked_dictionary)
-    return picked_dictionary
+    # TODO 1 (a): check the input and choose what to do accordingly
 
-#info printer
-def print_info(info,dic):
-  return print(f"\n{info} : {dic['name']}, a {dic['description']}, from {dic['country']}."
-    )
-  
-should_continue = True
-b=dictionary_picker()
-while should_continue:
-  a=b
-  b=dictionary_picker()
-  a_score = a["follower_count"]
-  b_score = b["follower_count"]
-  print_info(A,a)
-  print (vs)
-  print_info(B,b)
-   
-  user_input = (input("\nWhich do you think have most followers?\nType 'a' for A and 'b' for B : ")).lower()
-  clear()
-  print(logo)
-  if user_input=="a":
-    if a_score>b_score:
-      score+=1
-      if len(data):
-        print(f"You guessed right! Current score is {score}.")
-    else:
-      should_continue = False
-      print(f"Ngek wrong guess! Total score is {score}.")
-  elif user_input=="b":
-    if b_score>a_score:
-      score+=1
-      if len(data):
-        print(f"You guessed right! Current score is {score}.")
-    else:
-      should_continue = False
-      print(f"Ngek wrong guess! Total score is {score}.")
-  if not should_continue:
-    if(input("Hit enter to restart ...")==""):
-      clear()
-      print(logo)
-      should_continue=True    
-  if not len(data):
-   print(f"{winner}\nCongratulations! You won this game.")
-   should_continue=False
-  
-  
-      
-      
+    def check(data_name):
+        global data
+        data = MENU[data_name]["ingredients"]
+        data_water = data["water"]
+        data_milk = data["milk"]
+        data_coffee = data["coffee"]
+        if resources['water'] >= data_water and resources['milk'] >= data_milk and resources['coffee'] >= data_coffee:
+            return True
+        else:
+            return False
+
+    def price(coffee_name):
+        data_price = MENU[coffee_name]["cost"]
+        return data_price
+
+    if user_input == "off":
+        clear()
+
+    elif user_input == "report":
+        print(f"\nRemaining Water = {resources['water'] } ml")
+        print(f"Remaining Milk = {resources['milk']} ml")
+        print(f"Remaining Coffee = {resources['coffee']} gm")
+        print(f"Earned Money = {resources['money']}$")
+        if input("Press enter to get coffee....\n") == "":
+            coffee_machine()
+
+    elif check(user_input):
+        print("\nInsert Coins :")
+        money = (int(input("Quarter : "))) * 0.25
+        money += (int(input("Dimes : "))) * 0.10
+        money += (int(input("Nickle : "))) * 0.05
+        money += (int(input("Pennie : "))) * 0.01
+
+        coffee_price = price(user_input)
+        remaining_money = money - coffee_price
+
+        if money < coffee_price:
+            print("you are not getting any coffee")
+        else:
+            resources["money"] += coffee_price
+            resources["water"] -= data["water"]
+            resources["milk"] -= data["milk"]
+            resources["coffee"] -= data["coffee"]
+            print(f"\nHere's your {user_input} ☕")
+            if money > coffee_price:
+                print(f"    Your {remaining_money}$ change")
+            if input("Press enter to get more coffee....") == "":
+                coffee_machine()
+
+    elif not check(user_input):
+        print("Sorry we don't have enough resources please pick another type of coffee")
 
 
+coffee_machine()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
